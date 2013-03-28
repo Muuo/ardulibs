@@ -1,0 +1,31 @@
+#######################################
+# Syntax Coloring Map For Test
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+dualStep	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+step	KEYWORD2
+setXSpeed	KEYWORD2
+setYSpeed	KEYWORD2
+version	KEYWORD2
+
+######################################
+# Instances (KEYWORD2)
+#######################################
+Ydirection	KEYWORD2
+Xdirection	KEYWORD2
+Yspeed	KEYWORD2
+Xspeed	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################

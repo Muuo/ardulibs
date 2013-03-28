@@ -8,6 +8,7 @@
 #include Arduino.h
 #include AControl.h
 #include dualStep.h
+#include <math.h>
 
 //initialize the motor speeds
 Acontrol::init(int maxspeed) {
@@ -17,11 +18,35 @@ Acontrol::init(int maxspeed) {
 }
 
 AControl::gox(int len) {
-	int steps = len //this will be changed to some transformation involving len... will be determined after callibration
-	drives.step(steps,0);
+	int steps = len; //this will be changed to some transformation involving len... will be determined after callibration
+	drives.step(0,steps);
+	XPos+=len;
 }
 
 AControl::goy(int len) {
-	int steps = len //this will be changed to some transformation involving len... will be determined after callibration
-	drives.step(0,steps);
+	int steps = len; //this will be changed to some transformation involving len... will be determined after callibration
+	drives.step(steps,0);
+	YPos+=len;
+}
+
+Acontrol::intpol(int x1, int y1, int x2, int y2) {
+	//determine change in x assume that (x1,y1) is the origin and (x2,y2) the destination
+	int dx = x1-x2;
+	//do the same thing for y
+	int dy = y1-y2;
+	int Xsteps = dx; //this will be changed to some transformation involving dx
+	int Ysteps = dy; //this will be changed to some transformation involving dy
+
+	if (abs(dx)>abs(dy)) {
+		drives.setXSpeed(maxspeed);
+		drives.setYSpeed((maxspeed*dy)/dx);
+	}
+	else if (abs(dy)>abs(dx)) {
+		drives.setXSpeed((maxspeed*dx)/dy);
+		drives.setYSpeed(maxspeed);
+	}
+
+	drives.step(Ysteps, Xsteps);
+	XPos+=dx;
+	YPos+=dy;
 }

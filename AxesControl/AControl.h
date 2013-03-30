@@ -25,7 +25,7 @@ class AControl.h {
 		void gox(int len);
 		void goy(int len);
 		void intpol(int x1, int y1, int x2, int y2);
-		void intpolar(int x, int y, int len, int theta);
+		void intpolar(int x, int y, int radius, int theta);
 		void circpol(int radius, int a, int b);
 
 	private:

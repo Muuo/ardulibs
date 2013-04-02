@@ -6,7 +6,8 @@
 */
 
 /* to do: 	-implement cartesian co-ordinate system
-			-implement setpos(int x, int y) that takes the printer head to a position (x,y) */
+			-implement setpos(int x, int y) that takes the printer head to a position (x,y)
+			-implement circular interpolation												 */
 
 #include Arduino.h
 #include AControl.h
@@ -81,4 +82,8 @@ Acontrol::intpolar(int x, int y, int radius, int theta) {
 	drives.step(Ysteps, Xsteps);
 	XPos+=dx;
 	YPos+=dy;
+}
+
+AControl::circpol(int radius, int a, int b) {
+
 }

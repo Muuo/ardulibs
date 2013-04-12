@@ -1,6 +1,8 @@
 /*
   dualStep.h - - Stepper library for Wiring/Arduino - Version 0.4
   
+  This is a modification of stepper.h (the details of which are below) to allow for the control of more than two stepper motors simultaneously.
+  
   Original library     (0.1) by Tom Igoe.
   Two-wire modifications   (0.2) by Sebastian Gassner
   Combination version   (0.3) by Tom Igoe and David Mellis
